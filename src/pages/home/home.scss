@@ -1,0 +1,36 @@
+page-home {
+  .red-status:before{
+    color: #ff0000;
+  }
+  .yellow-status:before{
+    color: #FFC145;
+  }
+  .green-status:before{
+    color: #0FCC6F;
+  }
+  img.arrow {
+    position: absolute;
+    top: 10px;
+    top: 7px;
+    right: 6px;
+    width: 100%;
+    max-width: 20px;
+  }
+
+  ion-label.label{
+    font-size: 5.5vw;
+  }
+  .no-domains{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    p{
+      width:80%;
+      font-size: 5.5vw;
+      color: #636363;
+      text-shadow: 1px 1px #fff;
+    }
+  }
+}

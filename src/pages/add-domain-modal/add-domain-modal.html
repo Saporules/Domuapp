@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="domulight">
+    <ion-title>{{ titleText }} Domain</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Domain:</ion-label>
+      <ion-input type="text" [(ngModel)]="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Company:</ion-label>
+      <ion-input type="text" [(ngModel)]="company"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Expiration date:</ion-label>
+      <ion-datetime displayFormat="MMM DD YYYY" pickerFormat="MMM DD YYYY"
+      yearValues="{{yearsString}}" [(ngModel)]="expirationdate"></ion-datetime>
+    </ion-item>
+    <div padding>
+      <button type="button" ion-button icon-right block
+      (click)="createDomain()" color="domugreen">
+        {{ buttonText }} Domain
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </div>
+  </ion-list>
+</ion-content>

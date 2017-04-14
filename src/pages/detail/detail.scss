@@ -1,0 +1,34 @@
+page-detail {
+  ion-card{
+    position:relative;
+    ion-card-title.card-title{
+      font-size: 7vw;
+    }
+    ion-card-content.card-content{
+      p{
+        font-size: 5vw;
+        a{
+          color:#16B266;
+        }
+      }
+    }
+    ion-card-content.card-content:after{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 2vw;
+      height: 100vh;
+    }
+    ion-card-content.card-content.red-status:after{
+      background-color: #ff0000;
+    }
+    ion-card-content.card-content.yellow-status:after{
+      background-color: #FFC145;
+    }
+    ion-card-content.card-content.green-status:after{
+      background-color: #0FCC6F;
+    }
+  }
+
+}
