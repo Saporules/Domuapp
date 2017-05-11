@@ -13,10 +13,10 @@ import { AddDomainModal } from  '../add-domain-modal/add-domain-modal';
 export class DetailPage {
   domain: FirebaseObjectObservable<any>;
   domains: FirebaseListObservable<any>;
-  domainId: any;
-  domainUrl: any;
-  domainName: any;
-  domainCompany: any;
+  domainId: number;
+  domainUrl: string;
+  domainName: string;
+  domainCompany: string;
   domainExpDate: any;
   constructor(public navCtrl: NavController, public modalCtrl: ModalController,
     public angfire: AngularFire, public loadingCtrl: LoadingController,
@@ -37,11 +37,11 @@ export class DetailPage {
   ionViewDidLoad() {
   }
 
+  // function that opens the edit modal and calls the api for all domain details
   editDetails() {
     let modal = this.modalCtrl.create(AddDomainModal,
       { 'domain':this.domain,'domains': this.domains, 'domainId': this.domainId });
     modal.present();
-
     modal.onDidDismiss(data => {
      console.log(data);
      this.domain = this.angfire.database.object(`domains/${this.domainId}`,{ preserveSnapshot: true });
@@ -54,6 +54,7 @@ export class DetailPage {
    });
   }
 
+  // function that changes the color of the status based on the expiration date.
   status(expirationdate){
     var expirationStatus;
     let dayDiff = this.daysDifference(new Date(expirationdate), new Date());
@@ -69,10 +70,12 @@ export class DetailPage {
     return expirationStatus;
   }
 
+  //functions that calculates the difference between two dates.
   daysDifference(d1, d2){
     return Math.round((d1-d2)/(1000*60*60*24));
   }
 
+  // function that sends user to the domain's url in the phone browser.
   visitWebSite(){
     let ref = this.inAppBrowser.create(this.domainUrl,'_blank',{toolbar: 'yes', toolbarposition: 'top'});
     ref.show();

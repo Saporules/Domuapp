@@ -111,7 +111,6 @@ export class LoginPage {
           email: this.email,
           password: this.confirm_pw
         }).then((response)=>{
-          console.log('it worked');
           let currentuser = {
             email: response.auth.email,
             uid: response.uid

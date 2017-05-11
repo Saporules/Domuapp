@@ -5,12 +5,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { LoginPage } from '../login/login';
 
-/*
-  Generated class for the Settings page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-settings',
   templateUrl: 'settings.html'
@@ -26,6 +20,7 @@ export class SettingsPage {
     console.log('ionViewDidLoad SettingsPage');
   }
 
+  // function to log out from domu app
   logout() {
     this.angfire.auth.logout().then((response) => {
       window.localStorage.clear();
